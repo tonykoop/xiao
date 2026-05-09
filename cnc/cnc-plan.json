@@ -1,0 +1,183 @@
+{
+  "project": "XIAO-001",
+  "instrument": "G Nan Xiao (南箫)",
+  "version": "v4.3",
+  "date": "2026-05-08",
+  "note": "Pre-CAM operation plan. No G-code. Verify on scrap before tonewood.",
+  "machines": ["wood_lathe", "drill_press", "router_table"],
+  "datum": "foot_end_face = 0.000 inches",
+  "operations": [
+    {
+      "id": "OP-01",
+      "name": "Stock preparation",
+      "machine": "jointer_planer_table_saw",
+      "fixture": null,
+      "tooling": ["standard_mill_blades"],
+      "inputs": ["rough_walnut_blank"],
+      "outputs": ["1.5x1.5x26_in_square_blank"],
+      "release_checks": [
+        "grain_straight_lt5deg",
+        "length_gte_25.5_in",
+        "mc_lte_8pct",
+        "no_knots_in_bore_zone"
+      ]
+    },
+    {
+      "id": "OP-02",
+      "name": "Headstock-driven bore — scrap blank",
+      "machine": "wood_lathe",
+      "fixture": "tailstock_square_stock_carrier",
+      "tooling": ["1/4_in_pilot_bit_18in", "1/2_in_step_bit", "55/64_in_finish_bit", "7/8_in_adjustable_reamer"],
+      "spindle_rpm": "500-800",
+      "peck_depth_in": 0.5,
+      "target_bore_id_in": 0.866,
+      "target_bore_tolerance_in": 0.005,
+      "inputs": ["scrap_pine_poplar_blank_1.5x1.5x26"],
+      "outputs": ["bored_scrap_blank_0.866_id"],
+      "release_checks": [
+        "bore_wander_lt_0.030_in",
+        "bore_dia_3stations_0.866_pm_0.005",
+        "no_splits_or_burn"
+      ],
+      "mandatory_before": "OP-03",
+      "note": "MUST run on scrap before tonewood. Reject and re-jig if wander exceeds tolerance."
+    },
+    {
+      "id": "OP-03",
+      "name": "Headstock-driven bore — tonewood",
+      "machine": "wood_lathe",
+      "fixture": "tailstock_square_stock_carrier",
+      "tooling": ["1/4_in_pilot_bit_18in", "1/2_in_step_bit", "55/64_in_finish_bit", "7/8_in_adjustable_reamer"],
+      "spindle_rpm": "500-800",
+      "peck_depth_in": 0.5,
+      "target_bore_id_in": 0.866,
+      "target_bore_tolerance_in": 0.005,
+      "inputs": ["walnut_blank_1.5x1.5x26"],
+      "outputs": ["bored_walnut_blank_0.866_id"],
+      "blocked_by": ["OP-02"],
+      "release_checks": [
+        "bore_dia_entry_mid_exit_0.866_pm_0.005",
+        "light_passes_through_bore",
+        "no_cracks_at_ends"
+      ]
+    },
+    {
+      "id": "OP-04",
+      "name": "Exterior OD turning",
+      "machine": "wood_lathe",
+      "fixture": "live_center_bore_plug_at_tailstock",
+      "tooling": ["roughing_gouge", "spindle_gouge", "skew"],
+      "spindle_rpm": "800-1200",
+      "datum": "bore_axis",
+      "target_od_in": 1.338,
+      "target_od_tolerance_in": 0.010,
+      "final_sand_grit": 220,
+      "inputs": ["bored_walnut_blank"],
+      "outputs": ["turned_round_body_1.338_od"],
+      "blocked_by": ["OP-03"],
+      "release_checks": [
+        "od_4stations_1.338_pm_0.010",
+        "surface_220grit",
+        "no_chatter"
+      ],
+      "note": "Mount from bore axis — NOT from original blank centerpoints."
+    },
+    {
+      "id": "OP-05",
+      "name": "Embouchure U-notch",
+      "machine": "router_table_or_drill_press",
+      "fixture": "v_block_clamp",
+      "tooling": ["8-12mm_ball_nose_router_bit", "sharp_chisel_for_bevel"],
+      "notch_width_mm_TBD": "10-12",
+      "notch_depth_mm_TBD": "~5",
+      "bevel_angle_deg": 45,
+      "inputs": ["turned_body"],
+      "outputs": ["body_with_embouchure_notch"],
+      "blocked_by": ["OP-04"],
+      "release_checks": [
+        "stable_tone_on_blow",
+        "no_cracks_at_notch_corners",
+        "inner_bevel_sharp"
+      ],
+      "note": "Bevel angle set by ear on prototype. Dimensions are starting points."
+    },
+    {
+      "id": "OP-06",
+      "name": "Tone hole layout",
+      "machine": "bench",
+      "fixture": null,
+      "tooling": ["calipers", "marking_pencil"],
+      "datum": "foot_end = 0.000 in",
+      "hole_positions_in_from_foot": {
+        "H1_E4": 20.48,
+        "H2_F4": 19.33,
+        "H3_Gb4": 18.25,
+        "H4_G4_key": 17.22,
+        "H5_A4": 15.34,
+        "H6_B4": 13.67,
+        "H7_C5": 12.90,
+        "H8_Db5_thumb": 12.18
+      },
+      "layout_note": "Mark 1-2 mm toward foot vs model position for tuning margin",
+      "inputs": ["body_with_embouchure"],
+      "outputs": ["marked_body"],
+      "blocked_by": ["OP-05"],
+      "release_checks": [
+        "all_8_holes_marked",
+        "positions_verified_with_calipers"
+      ]
+    },
+    {
+      "id": "OP-07",
+      "name": "Tone hole drilling",
+      "machine": "drill_press",
+      "fixture": "v_block_plus_length_stop_fence",
+      "tooling": ["3mm_pilot_bit", "6-10mm_finish_bits_per_hole"],
+      "sequence": "holes_1_to_8_foot_to_head",
+      "inputs": ["marked_body"],
+      "outputs": ["body_with_8_holes_drilled"],
+      "blocked_by": ["OP-06"],
+      "release_checks": [
+        "all_holes_through_wall",
+        "no_wall_cracks",
+        "spacing_verified"
+      ]
+    },
+    {
+      "id": "OP-08",
+      "name": "Voicing and tuning",
+      "machine": "bench",
+      "fixture": null,
+      "tooling": ["round_file", "tapered_file", "dental_pick", "chisel", "strobe_tuner"],
+      "tuning_temperature_F": 68,
+      "tolerance_cents": 10,
+      "inputs": ["drilled_body"],
+      "outputs": ["voiced_instrument"],
+      "blocked_by": ["OP-07"],
+      "release_checks": [
+        "fundamental_293.66Hz_pm5cents",
+        "all_8_holes_pm10cents",
+        "overblow_octave_responds"
+      ]
+    },
+    {
+      "id": "OP-09",
+      "name": "Finishing",
+      "machine": "bench",
+      "fixture": null,
+      "tooling": ["cloth_strip_for_bore", "lint_free_cloth_exterior"],
+      "bore_finish": "boiled_linseed_oil",
+      "exterior_finish": "danish_oil_or_wax",
+      "cure_hours": 24,
+      "inputs": ["voiced_body"],
+      "outputs": ["finished_xiao"],
+      "blocked_by": ["OP-08"],
+      "release_checks": [
+        "bore_finish_applied_and_cured",
+        "fundamental_remeasured_after_finish",
+        "exterior_finish_applied",
+        "foot_plug_fitted"
+      ]
+    }
+  ]
+}

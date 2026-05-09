@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xiao Family (箫) — Build Log | Heifer Zephyr</title>
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --card: #fff;
+      --border: #e0d8c8;
+      --accent: #5a3e1b;
+      --blue: #2255aa;
+      --red: #cc2200;
+      --green: #336600;
+      --text: #2a2018;
+      --muted: #7a6a55;
+      --warn-bg: #fff8e0;
+      --warn-border: #cc9900;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.65; }
+    a { color: var(--blue); }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 4px solid #3a2a0a;
+    }
+    header .brand { font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; margin-bottom: 0.4rem; }
+    header h1 { font-size: 2.4rem; font-weight: normal; letter-spacing: 0.03em; }
+    header .subtitle { font-size: 1.05rem; opacity: 0.85; margin-top: 0.4rem; font-family: monospace; }
+    header .meta { font-size: 0.82rem; opacity: 0.65; margin-top: 0.8rem; font-family: monospace; }
+
+    .warn-banner {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      padding: 0.8rem 1.5rem;
+      font-family: monospace;
+      font-size: 0.88rem;
+      color: #664400;
+    }
+
+    nav {
+      background: #f0ebe0;
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 2rem;
+      font-size: 0.88rem;
+      font-family: monospace;
+    }
+    nav a { margin-right: 1.4rem; color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    main { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    section { margin-bottom: 2.8rem; }
+    h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+    }
+    h3 { font-size: 1.05rem; color: var(--text); margin: 1rem 0 0.4rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.6rem 0; }
+    th { background: #ede6d6; text-align: left; padding: 0.45rem 0.7rem; border: 1px solid var(--border); font-family: monospace; }
+    td { padding: 0.4rem 0.7rem; border: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: #faf5ec; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: monospace;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+    .badge-warn { background: var(--warn-bg); color: #885500; border: 1px solid var(--warn-border); }
+    .badge-ok   { background: #e8f8e0; color: var(--green); border: 1px solid #99cc66; }
+    .badge-tbd  { background: #eeeeee; color: #555; border: 1px solid #ccc; }
+
+    .drawing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .drawing-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .drawing-card img, .drawing-card object { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+    .drawing-card .cap { padding: 0.4rem 0.6rem; font-size: 0.8rem; font-family: monospace; background: #f0ebe0; }
+
+    .risk-item { border-left: 3px solid var(--red); padding: 0.5rem 0.8rem; margin-bottom: 0.6rem; background: #fff5f3; font-size: 0.88rem; }
+    .risk-item.medium { border-color: #cc8800; background: #fffbf0; }
+    .risk-item.low { border-color: #888; background: #f8f8f8; }
+
+    .build-step { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; }
+    .step-num { min-width: 2rem; min-height: 2rem; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: monospace; font-weight: bold; font-size: 0.85rem; }
+    .step-body h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .step-body p { font-size: 0.85rem; color: var(--muted); }
+
+    .formula-box { background: #f0f0ff; border: 1px solid #aabbdd; border-radius: 4px; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.88rem; margin: 0.6rem 0; }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem 2rem;
+      background: var(--accent);
+      color: #c8b898;
+      font-size: 0.82rem;
+      font-family: monospace;
+      text-align: center;
+    }
+    footer a { color: #e8d8b8; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Heifer Zephyr · Instrument Catalogue</div>
+  <h1>Xiao Family <span style="font-size:1.4rem; opacity:0.8">(箫)</span></h1>
+  <div class="subtitle">Chinese end-blown vertical flute · Bei Xiao · Nan Xiao · Qin Xiao · 8-hole chromatic</div>
+  <div class="meta">Build ID: XIAO-001 · Prototype: G Nan Xiao · Root D4 · Black walnut · v4.3 packet · 2026-05-08</div>
+</header>
+
+<div class="warn-banner">
+  ⚠ First-order acoustic model — bore lengths and tone-hole positions are estimates. Validate all dimensions on prototype before finalizing.
+</div>
+
+<nav>
+  <a href="#intent">Design Intent</a>
+  <a href="#model">Acoustic Model</a>
+  <a href="#drawings">Drawings</a>
+  <a href="#bom">BOM</a>
+  <a href="#build">Build Steps</a>
+  <a href="#risks">Risks</a>
+  <a href="https://github.com/tonykoop/xiao">GitHub Repo</a>
+</nav>
+
+<main>
+
+  <!-- DESIGN INTENT -->
+  <section id="intent">
+    <h2>Design Intent</h2>
+    <div class="card">
+      <p>The xiao (洞箫, <em>dòngxiāo</em>) is one of the oldest and most technically demanding of Chinese winds — an end-blown, notch-embouchure flute whose breathy tone has been inseparable from literati and court music since the Tang dynasty. This packet engineers a CNC-turned wooden prototype of the Nan Xiao (南箫), the most widely played southern variant, targeting the G key (root D4).</p>
+      <p style="margin-top:0.8rem;">The primary engineering challenges are: <strong>(1)</strong> drilling a 22.5 in straight bore through square stock without wander, using the headstock-driven technique; <strong>(2)</strong> accurate first-order tone-hole placement from the open-pipe model with trim allowance; and <strong>(3)</strong> characterizing the embouchure end correction empirically on the prototype.</p>
+      <p style="margin-top:0.8rem;"><strong>Material note:</strong> Traditional xiao are made from <em>madake</em> bamboo. This prototype uses black walnut. The acoustics are governed by bore geometry, not material, but bore finish (BLO/shellac) will affect the effective bore diameter and must be characterized. Internal lacquer shifts pitch; apply before final voicing.</p>
+    </div>
+
+    <h3>Three Bore Variants</h3>
+    <table>
+      <tr><th>Variant</th><th>Bore type</th><th>Bore ID (G key)</th><th>Mouthpiece</th><th>Character</th></tr>
+      <tr><td>Bei Xiao 北箫</td><td>Capped U-notch</td><td>0.866 in (22 mm)</td><td>2.0 in section</td><td>Northern; projecting, fuller tone</td></tr>
+      <tr><td><strong>Nan Xiao 南箫</strong> ← prototype</td><td>Open (bamboo-root end)</td><td>0.866 in (22 mm)</td><td>2.5 in section</td><td>Southern; warm, breathy; most common</td></tr>
+      <tr><td>Qin Xiao 琴箫</td><td>Capped U-notch (narrow)</td><td>0.551 in (14 mm)</td><td>3.0 in section</td><td>Refined; guqin companion</td></tr>
+    </table>
+  </section>
+
+  <!-- ACOUSTIC MODEL -->
+  <section id="model">
+    <h2>Acoustic Model</h2>
+    <div class="card">
+      <h3>Open-open cylindrical pipe</h3>
+      <div class="formula-box">
+        f = c / (2 · L_eff)<br>
+        L_eff = c / (2 · f)<br>
+        δ_end = 0.6 · r  (each open end)<br>
+        L_bore = L_eff − 2 · δ_end
+      </div>
+      <p>Speed of sound at 68°F: <strong>c = 13,504 in/s</strong></p>
+      <p style="margin-top:0.5rem;color:var(--red)">NAF K2 corrections do <em>not</em> apply here. Those corrections are specific to Tony's NAF bore range and embouchure geometry. All xiao predictions are first-order until measured.</p>
+    </div>
+
+    <h3>G Nan Xiao Prototype Parameters</h3>
+    <table>
+      <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
+      <tr><td>Root note</td><td>D4 (293.66 Hz)</td><td><span class="badge badge-ok">formula</span></td></tr>
+      <tr><td>Xiao key (hole 4)</td><td>G4</td><td><span class="badge badge-ok">convention</span></td></tr>
+      <tr><td>L_eff (acoustic length)</td><td>22.99 in (584 mm)</td><td><span class="badge badge-warn">first-order</span></td></tr>
+      <tr><td>End correction δ (each end)</td><td>0.260 in — embouchure assumed open</td><td><span class="badge badge-warn">assumption</span></td></tr>
+      <tr><td>L_bore (physical)</td><td>22.47 in (571 mm)</td><td><span class="badge badge-warn">first-order</span></td></tr>
+      <tr><td>Bore ID</td><td>0.866 in (22.0 mm)</td><td><span class="badge badge-ok">design table</span></td></tr>
+      <tr><td>OD</td><td>1.338 in (34.0 mm)</td><td><span class="badge badge-ok">derived</span></td></tr>
+      <tr><td>Wall thickness</td><td>0.236 in (6.0 mm)</td><td><span class="badge badge-ok">design table</span></td></tr>
+      <tr><td>Total blank length</td><td>~25.5 in (648 mm)</td><td><span class="badge badge-warn">nominal + trim</span></td></tr>
+    </table>
+
+    <h3>Tone Hole Positions (first-order)</h3>
+    <table>
+      <tr><th>Hole</th><th>Finger</th><th>Note</th><th>Freq (Hz)</th><th>From foot (in)</th><th>From foot (mm)</th></tr>
+      <tr><td>H1</td><td>RH pinky</td><td>E4</td><td>329.63</td><td>20.48 ⚠</td><td>520 ⚠</td></tr>
+      <tr><td>H2</td><td>RH ring</td><td>F4</td><td>349.23</td><td>19.33 ⚠</td><td>491 ⚠</td></tr>
+      <tr><td>H3</td><td>RH middle</td><td>Gb4</td><td>369.99</td><td>18.25 ⚠</td><td>464 ⚠</td></tr>
+      <tr><td><strong>H4 ★KEY</strong></td><td>RH index</td><td><strong>G4</strong></td><td>392.00</td><td>17.22 ⚠</td><td>437 ⚠</td></tr>
+      <tr><td>H5</td><td>LH ring</td><td>A4</td><td>440.00</td><td>15.34 ⚠</td><td>390 ⚠</td></tr>
+      <tr><td>H6</td><td>LH middle</td><td>B4</td><td>493.88</td><td>13.67 ⚠</td><td>347 ⚠</td></tr>
+      <tr><td>H7</td><td>LH index</td><td>C5</td><td>523.25</td><td>12.90 ⚠</td><td>328 ⚠</td></tr>
+      <tr><td>H8</td><td>LH thumb (rear)</td><td>Db5</td><td>554.37</td><td>12.18 ⚠</td><td>309 ⚠</td></tr>
+    </table>
+    <p style="font-size:0.82rem; color:var(--red); margin-top:0.4rem;">⚠ All positions first-order. Drill 1–2 mm toward foot for tuning margin. Final positions by undercutting.</p>
+  </section>
+
+  <!-- DRAWINGS -->
+  <section id="drawings">
+    <h2>Drawings</h2>
+    <div class="drawing-grid">
+      <div class="drawing-card">
+        <object data="../drawings/xiao-bore-profile.svg" type="image/svg+xml" style="width:100%;height:200px;background:#f8f8f8;"></object>
+        <div class="cap">DWG-001 — Bore Profile (section view)</div>
+      </div>
+      <div class="drawing-card">
+        <object data="../drawings/xiao-tonehole-layout.svg" type="image/svg+xml" style="width:100%;height:200px;background:#f8f8f8;"></object>
+        <div class="cap">DWG-002 — Tone Hole Layout (plan view)</div>
+      </div>
+      <div class="drawing-card">
+        <object data="../drawings/xiao-embouchure-detail.svg" type="image/svg+xml" style="width:100%;height:200px;background:#f8f8f8;"></object>
+        <div class="cap">DWG-003 — Embouchure Notch Detail</div>
+      </div>
+      <div class="drawing-card">
+        <object data="../drawings/xiao-headstock-drill-setup.svg" type="image/svg+xml" style="width:100%;height:200px;background:#f8f8f8;"></object>
+        <div class="cap">DWG-004 — Headstock Drilling Setup</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOM -->
+  <section id="bom">
+    <h2>Bill of Materials</h2>
+    <table>
+      <tr><th>Part</th><th>Description</th><th>Qty</th><th>Est. Cost</th><th>Source</th></tr>
+      <tr><td>XIAO-BLK-001</td><td>Black walnut blank 1.5×1.5×26 in</td><td>1</td><td>$8–15</td><td>Local hardwood</td></tr>
+      <tr><td>XIAO-SCRAP</td><td>Scrap pine/poplar blank (bore validation)</td><td>1</td><td>$3–5</td><td>Hardware store</td></tr>
+      <tr><td>XIAO-DRILL-001</td><td>1/4 in pilot bit, 18 in+</td><td>1</td><td>$8</td><td>McMaster-Carr</td></tr>
+      <tr><td>XIAO-DRILL-002</td><td>55/64 in finish bit, 18 in+</td><td>1</td><td>$25–45</td><td>McMaster-Carr / Toolmex</td></tr>
+      <tr><td>XIAO-REAM-001</td><td>7/8 in adjustable reamer</td><td>1</td><td>$35</td><td>McMaster-Carr</td></tr>
+      <tr><td>XIAO-FIN-001/002</td><td>BLO + Danish oil finish</td><td>1 set</td><td>$9</td><td>Hardware store</td></tr>
+      <tr><td>XIAO-JIG-001</td><td>Tailstock square-stock carrier (shop-made)</td><td>1</td><td>$15</td><td>Shop-made</td></tr>
+      <tr><td colspan="3" style="text-align:right;font-weight:bold;">Total (est.)</td><td><strong>~$109</strong></td><td></td></tr>
+    </table>
+  </section>
+
+  <!-- BUILD STEPS -->
+  <section id="build">
+    <h2>Build Workflow</h2>
+    <div class="build-step"><div class="step-num">1</div><div class="step-body"><h4>Stock Prep</h4><p>Mill walnut to 1.5 × 1.5 × 26 in. Verify grain, MC ≤ 8%, no knots in bore zone. Cut scrap blank to same dimensions.</p></div></div>
+    <div class="build-step"><div class="step-num">2</div><div class="step-body"><h4>Bore Scrap Blank (MANDATORY)</h4><p>Headstock-driven deep-bore method. Pilot → step → 55/64 in → ream to 0.866 in. Measure bore wander: must be &lt; 0.030 in. Do not touch tonewood until this passes.</p></div></div>
+    <div class="build-step"><div class="step-num">3</div><div class="step-body"><h4>Bore Tonewood</h4><p>Same setup as Step 2. Measure bore at 3 stations: entry, mid, exit. Target 0.866 in ± 0.005 in.</p></div></div>
+    <div class="build-step"><div class="step-num">4</div><div class="step-body"><h4>Turn OD from Bore Axis</h4><p>Mount blank between centers using bore-plug at tailstock. Turn OD to 1.338 in. The bore is the datum — not the original blank centers.</p></div></div>
+    <div class="build-step"><div class="step-num">5</div><div class="step-body"><h4>Cut Embouchure Notch</h4><p>Router or drill press: U-notch ~11 mm wide, ~5 mm deep. Refine inner bevel by hand at ~45°. Test by blowing — stable edge tone = success.</p></div></div>
+    <div class="build-step"><div class="step-num">6</div><div class="step-body"><h4>Drill Tone Holes</h4><p>Lay out 8 holes from foot datum using V-block + length stop. Drill pilot then finish. Sequence foot → head. H8 (thumb) drilled from rear face.</p></div></div>
+    <div class="build-step"><div class="step-num">7</div><div class="step-body"><h4>Voice and Tune</h4><p>Undercut each hole with round file / chisel while measuring with strobe tuner at 68°F. Target ±10 cents per hole.</p></div></div>
+    <div class="build-step"><div class="step-num">8</div><div class="step-body"><h4>Finish and Validate</h4><p>Apply BLO bore finish (cloth strip, 24 hr cure). Re-measure fundamental. Apply exterior finish. Fit adjustable foot plug. Record all results in validation.csv.</p></div></div>
+  </section>
+
+  <!-- RISKS -->
+  <section id="risks">
+    <h2>Top Build Risks</h2>
+    <div class="risk-item">
+      <strong>RISK-A01 (HIGH) — Embouchure end correction unknown</strong><br>
+      Model assumes δ_emb = 0.260 in. Measure fundamental on blank before drilling holes. Update L_bore if error &gt; ±15 cents.
+    </div>
+    <div class="risk-item">
+      <strong>RISK-S01 (HIGH) — Bore wander</strong><br>
+      22.5 in bore through 1.5 in square stock. Wander &gt; 0.030 in = thin wall = crack risk. Scrap validation mandatory.
+    </div>
+    <div class="risk-item">
+      <strong>RISK-S02 (HIGH) — Embouchure notch crack</strong><br>
+      U-notch creates stress concentration at wall. Radius corners, seal grain with thin CA immediately after cutting.
+    </div>
+    <div class="risk-item medium">
+      <strong>RISK-A03 (MEDIUM) — Bore finish shifts pitch</strong><br>
+      Apply BLO before final voicing. Measure fundamental before and after — expect 1–5 cents sharp.
+    </div>
+    <div class="risk-item medium">
+      <strong>RISK-E01 (MEDIUM) — Hand span</strong><br>
+      H4→H5 gap ≈ 48 mm. May be difficult for small hands. Document ergonomic minimum; smaller key available from design table.
+    </div>
+    <p style="font-size:0.85rem; margin-top:0.8rem;"><a href="../risks.md">Full risk register (12 risks with verification tests) →</a></p>
+  </section>
+
+</main>
+
+<footer>
+  Heifer Zephyr · XIAO-001 · G Nan Xiao (南箫) · v4.3 packet · 2026-05-08<br>
+  <a href="https://github.com/tonykoop/xiao">github.com/tonykoop/xiao</a> ·
+  <a href="https://github.com/tonykoop/instrument-maker">instrument-maker catalogue</a><br>
+  CC BY 4.0 — Tony Koop
+</footer>
+
+</body>
+</html>

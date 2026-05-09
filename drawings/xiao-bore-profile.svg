@@ -1,0 +1,97 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="11">
+
+  <!-- Title block -->
+  <rect x="0" y="0" width="900" height="320" fill="#fff" stroke="#333" stroke-width="1"/>
+  <rect x="0" y="270" width="900" height="50" fill="#f0f0f0" stroke="#333" stroke-width="1"/>
+  <line x1="0" y1="270" x2="900" y2="270" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Title block text -->
+  <text x="10" y="285" font-size="12" font-weight="bold">XIAO FAMILY — BORE PROFILE (SECTION VIEW)</text>
+  <text x="10" y="298">Instrument: G Nan Xiao (南箫) | XIAO-001 | v4.3</text>
+  <text x="10" y="311">Units: inches (mm) | Scale: not to scale | Date: 2026-05-08</text>
+  <text x="550" y="285" font-weight="bold">⚠ FIRST-ORDER ESTIMATES</text>
+  <text x="550" y="298">Validate all dimensions on prototype</text>
+  <text x="550" y="311">Drawing: DWG-001 | Author: Tony Koop / Heifer Zephyr</text>
+
+  <!-- Datum line (foot end = 0) -->
+  <line x1="60" y1="240" x2="840" y2="240" stroke="#999" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <text x="62" y="252" font-size="9" fill="#666">DATUM: FOOT END = 0.000</text>
+
+  <!-- Outer body profile -->
+  <!-- Body runs from x=80 (foot) to x=760 (mouthpiece end), y=120 to y=200 (OD = 1.338 in → ~80px height) -->
+  <rect x="80" y="120" width="680" height="80" fill="#e8dcc8" stroke="#444" stroke-width="1.5" rx="2"/>
+
+  <!-- Bore cutout (section view) -->
+  <!-- Bore ID = 0.866 in → ~52px; centered vertically in 80px body = y=134 to y=186 -->
+  <rect x="80" y="134" width="660" height="52" fill="#c8e8ff" stroke="#2266aa" stroke-width="1" rx="1"/>
+
+  <!-- Foot open end marker -->
+  <line x1="80" y1="114" x2="80" y2="212" stroke="#333" stroke-width="2"/>
+  <text x="62" y="112" font-size="10" text-anchor="middle">FOOT</text>
+  <text x="62" y="122" font-size="10" text-anchor="middle">OPEN</text>
+
+  <!-- Mouthpiece end marker -->
+  <line x1="760" y1="114" x2="760" y2="212" stroke="#333" stroke-width="2"/>
+  <text x="778" y="122" font-size="10">MOUTH-</text>
+  <text x="778" y="134" font-size="10">PIECE</text>
+
+  <!-- Mouthpiece section boundary -->
+  <line x1="700" y1="120" x2="700" y2="200" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="703" y="115" font-size="9" fill="#888">2.5 in</text>
+  <text x="703" y="108" font-size="9" fill="#888">mouthpiece</text>
+
+  <!-- OD dimension -->
+  <line x1="80" y1="108" x2="760" y2="108" stroke="#333" stroke-width="0.8" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <text x="420" y="104" font-size="10" text-anchor="middle">Body OD: 1.338 in (34.0 mm)</text>
+
+  <!-- Bore ID dimension (right side) -->
+  <line x1="770" y1="134" x2="770" y2="186" stroke="#2266aa" stroke-width="0.8"/>
+  <line x1="762" y1="134" x2="778" y2="134" stroke="#2266aa" stroke-width="0.8"/>
+  <line x1="762" y1="186" x2="778" y2="186" stroke="#2266aa" stroke-width="0.8"/>
+  <text x="782" y="160" font-size="10" fill="#2266aa">Bore ID:</text>
+  <text x="782" y="172" font-size="10" fill="#2266aa">0.866 in</text>
+  <text x="782" y="184" font-size="10" fill="#2266aa">(22.0 mm)</text>
+
+  <!-- Wall thickness callout (left side) -->
+  <line x1="70" y1="120" x2="70" y2="134" stroke="#666" stroke-width="0.8"/>
+  <line x1="63" y1="120" x2="77" y2="120" stroke="#666" stroke-width="0.8"/>
+  <line x1="63" y1="134" x2="77" y2="134" stroke="#666" stroke-width="0.8"/>
+  <text x="10" y="130" font-size="9" fill="#666">Wall:</text>
+  <text x="10" y="141" font-size="9" fill="#666">0.236 in</text>
+  <text x="10" y="152" font-size="9" fill="#666">(6.0 mm)</text>
+
+  <!-- L_bore dimension (bottom) -->
+  <line x1="80" y1="215" x2="740" y2="215" stroke="#aa3300" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <line x1="80" y1="210" x2="80" y2="220" stroke="#aa3300" stroke-width="0.8"/>
+  <line x1="740" y1="210" x2="740" y2="220" stroke="#aa3300" stroke-width="0.8"/>
+  <text x="380" y="228" font-size="10" fill="#aa3300" text-anchor="middle">L_bore: 22.47 in (571 mm) ⚠ FIRST-ORDER ESTIMATE</text>
+
+  <!-- L_eff annotation -->
+  <line x1="80" y1="232" x2="753" y2="232" stroke="#006600" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <text x="380" y="244" font-size="9" fill="#006600" text-anchor="middle">L_eff (acoustic): 22.99 in (584 mm) — includes 2× end correction of 0.260 in each end</text>
+
+  <!-- End correction arrows -->
+  <line x1="740" y1="134" x2="753" y2="134" stroke="#006600" stroke-width="1" marker-end="url(#grnarr)"/>
+  <text x="742" y="148" font-size="8" fill="#006600">δ=0.26 in</text>
+
+  <!-- Trim allowance note -->
+  <rect x="790" y="120" width="50" height="80" fill="#ffe0e0" stroke="#cc0000" stroke-width="1" stroke-dasharray="3,2" rx="2"/>
+  <text x="815" y="155" font-size="8" fill="#cc0000" text-anchor="middle">+0.25</text>
+  <text x="815" y="165" font-size="8" fill="#cc0000" text-anchor="middle">trim</text>
+  <text x="815" y="175" font-size="8" fill="#cc0000" text-anchor="middle">allow.</text>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="grnarr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#006600"/>
+    </marker>
+  </defs>
+
+  <!-- Material label -->
+  <text x="300" y="163" font-size="11" fill="#664400" text-anchor="middle">Black Walnut (prototype)</text>
+  <text x="300" y="176" font-size="9" fill="#2266aa" text-anchor="middle">Bore shown in blue (section)</text>
+
+</svg>
