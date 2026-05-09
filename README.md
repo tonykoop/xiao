@@ -10,8 +10,8 @@ Part of the [tonykoop/instrument-maker](https://github.com/tonykoop/instrument-m
 
 ---
 
-<!-- hero image placeholder — replace with finished instrument photo -->
-![Xiao hero image](images/finished-full.jpg)
+<!-- hero image placeholder: replace with finished instrument photo after build. Current L2 packet uses generated technical drawings as visual evidence. -->
+![Xiao bore profile](drawings/xiao-bore-profile.svg)
 
 ---
 
