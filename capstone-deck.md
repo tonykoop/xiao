@@ -1,11 +1,11 @@
-# Xiao Family (箫) — Capstone Slide Deck Outline
+# Xiao Family Capstone Deck Outline
 ## XIAO-001 · G Nan Xiao · v4.3 · 2026-05-08
 
 > Binary .pptx: run `python3 scripts/generate_capstone_docs.py . --title "Xiao Capstone"` when bash is available.
 
 ---
 
-## Slide 1 — Title
+# Slide 1 — Title
 
 **Xiao Family (箫)**  
 *Chinese End-Blown Vertical Flute — Engineering Documentation*  
@@ -15,7 +15,7 @@ Build ID: XIAO-001 · G Nan Xiao prototype · Heifer Zephyr · 2026-05-08
 
 ---
 
-## Slide 2 — What This Project Is
+# Slide 2 — What This Project Is
 
 **One sentence:** A parametric engineering study of the Chinese xiao, producing a CNC-turned wooden prototype of the G Nan Xiao with a 22.5 in deep-bored cylindrical bore, 8-hole chromatic scale, and first-order acoustic validation.
 
@@ -28,7 +28,7 @@ Build ID: XIAO-001 · G Nan Xiao prototype · Heifer Zephyr · 2026-05-08
 
 ---
 
-## Slide 3 — File Map
+# Slide 3 — File Map
 
 | File | Purpose | Use when |
 |---|---|---|
@@ -45,7 +45,7 @@ Build ID: XIAO-001 · G Nan Xiao prototype · Heifer Zephyr · 2026-05-08
 
 ---
 
-## Slide 4 — Build Workflow
+# Slide 4 — Build Workflow
 
 ```
 Stock prep → Bore SCRAP (validate) → Bore tonewood → Turn OD from bore axis
@@ -59,7 +59,7 @@ Stock prep → Bore SCRAP (validate) → Bore tonewood → Turn OD from bore axi
 
 ---
 
-## Slide 5 — Acoustic Model
+# Slide 5 — Acoustic Model
 
 **Governing model:** Open-open cylindrical pipe  
 `f = c / (2 · L_eff)` · `L_eff = L_bore + 1.2 · r` (both ends open)
@@ -82,7 +82,7 @@ Stock prep → Bore SCRAP (validate) → Bore tonewood → Turn OD from bore axi
 
 ---
 
-## Slide 6 — BOM and Sourcing
+# Slide 6 — BOM and Sourcing
 
 | Item | Qty | Cost | Status |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Stock prep → Bore SCRAP (validate) → Bore tonewood → Turn OD from bore axi
 
 ---
 
-## Slide 7 — Drawings and CAD
+# Slide 7 — Drawings and CAD
 
 [embed: drawings/xiao-bore-profile.svg] — Bore Profile (DWG-001)  
 [embed: drawings/xiao-headstock-drill-setup.svg] — Drill Setup (DWG-004)
@@ -114,7 +114,7 @@ Stock prep → Bore SCRAP (validate) → Bore tonewood → Turn OD from bore axi
 
 ---
 
-## Slide 8 — CNC / Operation Plan
+# Slide 8 — CNC / Operation Plan
 
 **Machines:** Wood lathe (bore + turning) · Drill press (tone holes) · Router table (embouchure notch)
 
@@ -126,7 +126,7 @@ Each operation has a **release check** — the next OP cannot start until it pas
 
 ---
 
-## Slide 9 — Assembly
+# Slide 9 — Assembly
 
 **Bore before turning** (bore axis = lathe datum)  
 **Headstock-driven drilling:** bit in headstock Jacobs chuck; blank stationary in tailstock carrier  
@@ -138,7 +138,7 @@ See `assembly-manual.md` and `jigs/` for full procedures.
 
 ---
 
-## Slide 10 — Validation Plan
+# Slide 10 — Validation Plan
 
 | Check | Target | Tolerance | Tool |
 |---|---|---|---|
@@ -153,7 +153,7 @@ All measurements at 68°F. Record temperature in validation.csv.
 
 ---
 
-## Slide 11 — Open Risks
+# Slide 11 — Open Risks
 
 | Risk | Severity | Status |
 |---|---|---|
@@ -167,7 +167,7 @@ Full register: `risks.md` — 12 risks with verification tests.
 
 ---
 
-## Slide 12 — Next Actions
+# Slide 12 — Next Actions
 
 - [ ] Order 55/64 in long-series drill bit (lead time risk)
 - [ ] Mill or source walnut blank + scrap blank
