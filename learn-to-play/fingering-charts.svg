@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="600" font-family="monospace" font-size="13">
+  <title>Xiao D — Fingering Chart</title>
+  <rect width="680" height="600" fill="#fffef8" rx="8"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="bold">Xiao in D — Fingering Chart</text>
+  <text x="340" y="48" text-anchor="middle" font-size="11" fill="#555">● = hole covered  ○ = hole open  T = thumb hole (back)</text>
+  <text x="10"  y="74" font-weight="bold">Note</text>
+  <text x="60"  y="74" font-weight="bold">T</text>
+  <text x="88"  y="74" font-weight="bold">H1</text><text x="116" y="74" font-weight="bold">H2</text><text x="144" y="74" font-weight="bold">H3</text>
+  <text x="172" y="74" font-weight="bold">H4</text><text x="200" y="74" font-weight="bold">H5</text><text x="228" y="74" font-weight="bold">H6</text>
+  <text x="268" y="74" font-weight="bold">Oct</text>
+  <!-- 1st octave D4-D5 -->
+  <text x="10"  y="96">D4</text>  <text x="60" y="96">●</text><text x="88" y="96">●</text><text x="116" y="96">●</text><text x="144" y="96">●</text><text x="172" y="96">●</text><text x="200" y="96">●</text><text x="228" y="96">●</text><text x="268" y="96">1</text>
+  <text x="10" y="116">E4</text>  <text x="60" y="116">●</text><text x="88" y="116">●</text><text x="116" y="116">●</text><text x="144" y="116">●</text><text x="172" y="116">●</text><text x="200" y="116">●</text><text x="228" y="116">○</text><text x="268" y="116">1</text>
+  <text x="10" y="136">F#4</text> <text x="60" y="136">●</text><text x="88" y="136">●</text><text x="116" y="136">●</text><text x="144" y="136">●</text><text x="172" y="136">●</text><text x="200" y="136">○</text><text x="228" y="136">○</text><text x="268" y="136">1</text>
+  <text x="10" y="156">G4</text>  <text x="60" y="156">●</text><text x="88" y="156">●</text><text x="116" y="156">●</text><text x="144" y="156">●</text><text x="172" y="156">○</text><text x="200" y="156">○</text><text x="228" y="156">○</text><text x="268" y="156">1</text>
+  <text x="10" y="176">A4</text>  <text x="60" y="176">●</text><text x="88" y="176">●</text><text x="116" y="176">●</text><text x="144" y="176">○</text><text x="172" y="176">○</text><text x="200" y="176">○</text><text x="228" y="176">○</text><text x="268" y="176">1</text>
+  <text x="10" y="196">B4</text>  <text x="60" y="196">●</text><text x="88" y="196">●</text><text x="116" y="196">○</text><text x="144" y="196">○</text><text x="172" y="196">○</text><text x="200" y="196">○</text><text x="228" y="196">○</text><text x="268" y="196">1</text>
+  <text x="10" y="216">C#5</text> <text x="60" y="216">●</text><text x="88" y="216">○</text><text x="116" y="216">●</text><text x="144" y="216">●</text><text x="172" y="216">●</text><text x="200" y="216">●</text><text x="228" y="216">●</text><text x="268" y="216">1</text>
+  <text x="10" y="236">D5</text>  <text x="60" y="236">●</text><text x="88" y="236">○</text><text x="116" y="236">○</text><text x="144" y="236">○</text><text x="172" y="236">○</text><text x="200" y="236">○</text><text x="228" y="236">○</text><text x="268" y="236">1/2</text>
+  <!-- 2nd octave D5-D6 -->
+  <text x="10" y="264">D5</text>  <text x="60" y="264">○</text><text x="88" y="264">●</text><text x="116" y="264">●</text><text x="144" y="264">●</text><text x="172" y="264">●</text><text x="200" y="264">●</text><text x="228" y="264">●</text><text x="268" y="264">2</text>
+  <text x="10" y="284">E5</text>  <text x="60" y="284">○</text><text x="88" y="284">●</text><text x="116" y="284">●</text><text x="144" y="284">●</text><text x="172" y="284">●</text><text x="200" y="284">●</text><text x="228" y="284">○</text><text x="268" y="284">2</text>
+  <text x="10" y="304">F#5</text> <text x="60" y="304">○</text><text x="88" y="304">●</text><text x="116" y="304">●</text><text x="144" y="304">●</text><text x="172" y="304">●</text><text x="200" y="304">○</text><text x="228" y="304">○</text><text x="268" y="304">2</text>
+  <text x="10" y="324">G5</text>  <text x="60" y="324">○</text><text x="88" y="324">●</text><text x="116" y="324">●</text><text x="144" y="324">●</text><text x="172" y="324">○</text><text x="200" y="324">○</text><text x="228" y="324">○</text><text x="268" y="324">2</text>
+  <text x="10" y="344">A5</text>  <text x="60" y="344">○</text><text x="88" y="344">●</text><text x="116" y="344">●</text><text x="144" y="344">○</text><text x="172" y="344">○</text><text x="200" y="344">○</text><text x="228" y="344">○</text><text x="268" y="344">2</text>
+  <text x="10" y="364">B5</text>  <text x="60" y="364">○</text><text x="88" y="364">●</text><text x="116" y="364">○</text><text x="144" y="364">○</text><text x="172" y="364">○</text><text x="200" y="364">○</text><text x="228" y="364">○</text><text x="268" y="364">2</text>
+  <text x="10" y="384">D6</text>  <text x="60" y="384">○</text><text x="88" y="384">○</text><text x="116" y="384">○</text><text x="144" y="384">○</text><text x="172" y="384">○</text><text x="200" y="384">○</text><text x="228" y="384">○</text><text x="268" y="384">2</text>
+  <text x="340" y="430" text-anchor="middle" fill="#555" font-size="11">Thumb hole on back; cross your right thumb to cover. 2nd octave: open thumb, adjust embouchure.</text>
+  <text x="340" y="450" text-anchor="middle" fill="#555" font-size="11">Generated by sheet-music skill — Refs #1</text>
+</svg>
