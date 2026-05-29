@@ -6,7 +6,7 @@
 **Prototype target:** G Nan Xiao (root D4) · Black walnut · Headstock-driven deep-bore drilling  
 Part of the [tonykoop/instrument-maker](https://github.com/tonykoop/instrument-maker) catalogue.
 
-> ⚠ **Status: First-order acoustic model.** Bore lengths and tone-hole positions are model predictions. All tuning claims are marked as estimates and must be validated on prototype.
+**Status: L2 V5 build-packet candidate.** Bore lengths and tone-hole positions are first-order model predictions — all tuning claims are estimates and must be validated on prototype. All SVGs in `drawings/` are derived previews; Wolfram sources are present but runtime execution is not yet recorded.
 
 ---
 
