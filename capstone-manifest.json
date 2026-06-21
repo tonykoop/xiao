@@ -11,5 +11,37 @@
     "capstone-deck.pptx",
     "print-packet.pdf"
   ],
-  "validation_status": "No prototype measurements yet"
+  "validation_status": "No prototype measurements yet",
+  "engineering": {
+    "wolfram": [
+      {
+        "source_file": "woodwind/xiao/wolfram-starter.wl",
+        "cloud_path": "Musical_Instruments/woodwinds/xiao/wolfram-starter.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/woodwinds/xiao/wolfram-starter.wl",
+        "permission": "Public-Execute",
+        "kind": "acoustics-starter"
+      },
+      {
+        "source_file": "woodwind/xiao/wolfram/instrument-model.wl",
+        "cloud_path": "Musical_Instruments/woodwinds/xiao/instrument-model.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/woodwinds/xiao/instrument-model.wl",
+        "permission": "Public-Execute",
+        "kind": "geometry-model"
+      },
+      {
+        "source_file": "woodwind/xiao/wolfram/xiao-wolfram-model.wl",
+        "cloud_path": "Musical_Instruments/woodwinds/xiao/xiao-wolfram-model.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/woodwinds/xiao/xiao-wolfram-model.wl",
+        "permission": "Public-Execute",
+        "kind": "geometry-model"
+      },
+      {
+        "source_file": "woodwind/xiao/xiao-starter.wl",
+        "cloud_path": "Musical_Instruments/woodwinds/xiao/xiao-starter.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/woodwinds/xiao/xiao-starter.wl",
+        "permission": "Public-Execute",
+        "kind": "acoustics-starter"
+      }
+    ]
+  }
 }
