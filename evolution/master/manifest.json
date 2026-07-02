@@ -1,0 +1,34 @@
+{
+  "product": "xiao",
+  "pipeline": "studiopipeline:evolution-pipeline",
+  "stage": "0-intake",
+  "master_revision": "rev-A (pre-commit intake, 2026-07-01)",
+  "generated": "2026-07-01",
+  "cad_masters": [
+    {
+      "path": "cad/xiao.scad",
+      "format": "openscad-source",
+      "sha256": "3832be6631ce64d141e368377fbe873fe25e27d0db50bf8b6a6dd54874659363",
+      "authority": "pending_measurement",
+      "lossy": false,
+      "notes": "New parametric master (bore + tone-hole array only; blowing-edge notch out of scope). Hole positions and L_eff/L_bore derived by formula from design.md, verified by OpenSCAD echo against design.md's published table. Flags a bore_id/wall_thickness discrepancy vs xiao-design-table.xlsx row16/17 col E."
+    },
+    {
+      "path": "xiao-design-table.xlsx",
+      "format": "design-table",
+      "sha256": "17c8b5783f117235e83f1da46e28202ae674b4700645ce71d5cdee196199d32a",
+      "authority": "fabrication",
+      "lossy": false,
+      "notes": "Current dimensional authority (26 keys x 3 bore variants). Note: End Correction row (row 33) formulas reference the Bei Xiao bore row for every column, so live per-column Bore ID cells for Nan Xiao / Qin Xiao are not wired into the acoustic calc chain — see cad/xiao.scad header for the discrepancy this creates against design.md's worked prototype table."
+    },
+    {
+      "path": "wolfram/xiao-wolfram-model.wl",
+      "format": "wolfram-source",
+      "sha256": "41c785dea85cc8341aedd6d16d646ea7f09c4275704dd5b52b36862f7149bcd5",
+      "authority": "derived_preview",
+      "lossy": false,
+      "notes": "Source-only (not executed); L2 evidence. Pre-existing file, not modified this pass."
+    }
+  ],
+  "notes": "OpenSCAD source + design table are the current masters; no STEP/SolidWorks export exists yet (cad/README.md SolidWorks plan is still TBD). No STL/STEP export performed. Gate A (Alpha workspace compile) not yet run."
+}

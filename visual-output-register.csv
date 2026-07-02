@@ -8,3 +8,4 @@ wolfram/xiao-wolfram-model.wl,wolfram_source,pending_measurement,xiao-design-tab
 wolfram-starter.wl,wolfram_source,pending_measurement,wolfram/xiao-wolfram-model.wl,Root-mode loader; source-only at L2.
 xiao-starter.wl,wolfram_source,pending_measurement,xiao-design-table.xlsx,Instrument-specific Wolfram starter; source-only at L2.
 family-spec.csv,family_spec,pending_measurement,xiao-design-table.xlsx,L2 family spec scaffold (Bei/Nan/Qin Xiao members); dimension_provenance is measurement_required.
+cad/xiao.scad,cad_source,pending_measurement,design.md,New parametric OpenSCAD master (bore + tone-hole array only; blowing edge explicitly out of scope). fabrication_required=false. Renders clean in OpenSCAD (exit 0). Not fabrication authority until reviewed against a measured prototype. Flags bore_id/wall_thickness discrepancy vs xiao-design-table.xlsx row16/17 col E (see cad/xiao.scad header).
