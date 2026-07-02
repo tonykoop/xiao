@@ -6,7 +6,7 @@
 **Prototype target:** G Nan Xiao (root D4) · Black walnut · Headstock-driven deep-bore drilling  
 Part of the [tonykoop/instrument-maker](https://github.com/tonykoop/instrument-maker) catalogue.
 
-**Status: L2 V5 build-packet candidate.** Bore lengths and tone-hole positions are first-order model predictions — all tuning claims are estimates and must be validated on prototype. All SVGs in `drawings/` are derived previews; Wolfram sources are present but runtime execution is not yet recorded.
+**Status:** L2 V5 build-packet candidate. Bore lengths and tone-hole positions are first-order model predictions — all tuning claims are estimates and must be validated on prototype. All SVGs in `drawings/` are derived previews; Wolfram sources are present but runtime execution is not yet recorded.
 
 ---
 
@@ -51,7 +51,8 @@ The key engineering challenge is the 22.5 in straight bore — drilled before tu
 | `cnc/` | Operation graph, operations.csv, setup-sheet.md |
 | `jigs/` | Jig specs — headstock bore carrier, tonehole V-block |
 | `wolfram/instrument-model.wl` | Wolfram acoustic model package |
-| `cad/` | SolidWorks CAD placeholder |
+| `cad/` | Parametric OpenSCAD master (`cad/xiao.scad`, bore + tone-hole array) plus SolidWorks CAD placeholder |
+| `evolution/` | Evolution-pipeline Stage 0 intake — design intent, revision register, CAD master manifest (Gate A not yet run) |
 | `site/index.html` | Build-log static site |
 | `images/` | Build photos (populate during build) |
 | `data/` | Design intake JSON and CSV |

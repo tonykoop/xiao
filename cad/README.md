@@ -1,6 +1,6 @@
 # Xiao — CAD Folder
 
-**Status:** Placeholder — CAD not yet created.
+**Status:** `cad/xiao.scad` — parametric OpenSCAD master (bore + tone-hole array only; blowing-edge notch out of scope) — added 2026-07-01. Authority: `pending_measurement`; not fabrication authority until reviewed against a measured prototype. See `mcp-session-log.md` for provenance. SolidWorks parts below remain planned/TBD.
 
 ## Planned files
 
